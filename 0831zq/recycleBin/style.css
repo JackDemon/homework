@@ -1,0 +1,31 @@
+
+#container{
+    width: 900px;
+    height: 650px;
+    background-color: #cccccc;
+    float:left;
+    /*overflow: hidden;*/
+}
+#content{
+    float:left;
+}
+
+.rubbish{
+    width:100px;
+    height:100px;
+    background-color: red;
+    position: relative;
+    left:10px;
+    top:10px;
+}
+.Trash{
+    width:150px;
+    height:150px;
+    background-color: #003eff;
+    /*position: relative;*/
+    /*right:10px;*/
+    /*top:10px;*/
+    float:right;
+    margin-top:10px;
+    margin-left:600px;
+}
