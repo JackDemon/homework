@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="jQueryMobile/jquery.js"></script>
+    <script src="jQueryMobile/jquery.mobile-1.4.5.js"></script>
+    <link rel="stylesheet" href="jQueryMobile/jquery.mobile-1.4.5.css" type="text/css">
+</head>
+<body>
+
+    <div data-role="page" id="home">
+        <div data-role="header" data-position="fixed">
+            <h1>首页</h1>
+            <a href="#" data-role="button" data-rel="back"  class="ui-btn ui-icon-carat-l ui-btn-icon-left ui-nodisc-icon">返回</a>
+            <a href="#" data-role="button" class="ui-btn ui-icon-user ui-btn-icon-right ui-nodisc-icon" style="height:15px"></a>
+        </div>
+        <div data-role="main" class="ui-content">
+            <p>联系人</p>
+            <div data-role="controlgroup">
+                <a href="#" data-role="button" class="ui-btn ui-icon-user ui-btn-icon-left">刘一</a>
+                <a href="#" data-role="button" class="ui-btn ui-icon-user ui-btn-icon-left">陈二</a>
+                <a href="#" data-role="button" class="ui-btn ui-icon-user ui-btn-icon-left">张三</a>
+                <a href="#" data-role="button" class="ui-btn ui-icon-user ui-btn-icon-left">李四</a>
+                <a href="#" data-role="button" class="ui-btn ui-icon-user ui-btn-icon-left">王五</a>
+                <a href="#" data-role="button" class="ui-btn ui-icon-user ui-btn-icon-left">赵六</a>
+                <a href="#" data-role="button" class="ui-btn ui-icon-user ui-btn-icon-left">孙七</a>
+                <a href="#" data-role="button" class="ui-btn ui-icon-user ui-btn-icon-left">周八</a>
+                <a href="#" data-role="button" class="ui-btn ui-icon-user ui-btn-icon-left">吴九</a>
+                <a href="#" data-role="button" class="ui-btn ui-icon-user ui-btn-icon-left">郑十</a>
+            </div>
+        </div>
+        <div data-role="footer" data-position="fixed">
+            <div data-role="navbar">
+                <ul>
+                    <li><a href="#home" data-icon="home" class="ui-nodisc-icon ui-alt-icon" data-transition="turn">首页</a></li>
+                    <li><a href="#discovery" data-icon="eye" class="ui-nodisc-icon ui-alt-icon" data-transition="turn">发现</a></li>
+                    <li><a href="#setting" data-icon="gear" class="ui-nodisc-icon ui-alt-icon" data-transition="turn">设置</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+<!--.......................................................................................................................-->
+    <div data-role="page" id="discovery">
+        <div data-role="header" data-position="fixed">
+            <h1>发现</h1>
+            <a href="#" data-role="button" data-rel="back"  class="ui-btn ui-icon-carat-l ui-btn-icon-left ui-nodisc-icon">返回</a>
+            <a href="#" data-role="button" class="ui-btn ui-icon-user ui-btn-icon-right ui-nodisc-icon" style="height:15px"></a>
+        </div>
+        <div data-role="main" class="ui-content">
+            <p>未读邮件</p>
+            <div data-role="collapsible">
+                <h1>标题1</h1>
+                <p>内容啦啦啦啦啦</p>
+                <p>内容啦啦啦啦啦</p>
+            </div>
+            <div data-role="collapsible">
+                <h1>标题2</h1>
+                <p>内容啦啦啦啦啦</p>
+                <p>内容啦啦啦啦啦</p>
+            </div>
+            <div data-role="collapsible">
+                <h1>标题3</h1>
+                <p>内容啦啦啦啦啦</p>
+                <p>内容啦啦啦啦啦</p>
+            </div>
+            <p>已读邮件</p>
+            <div data-role="collapsible">
+                <h1>标题1</h1>
+                <p>内容啦啦啦啦啦</p>
+                <p>内容啦啦啦啦啦</p>
+            </div>
+            <div data-role="collapsible">
+                <h1>标题2</h1>
+                <p>内容啦啦啦啦啦</p>
+                <p>内容啦啦啦啦啦</p>
+            </div>
+        </div>
+        <div data-role="footer" data-position="fixed">
+            <div data-role="navbar">
+                <ul>
+                    <li><a href="#home" data-icon="home" class="ui-nodisc-icon ui-alt-icon" data-transition="turn">首页</a></li>
+                    <li><a href="#discovery" data-icon="eye" class="ui-nodisc-icon ui-alt-icon" data-transition="turn">发现</a></li>
+                    <li><a href="#setting" data-icon="gear" class="ui-nodisc-icon ui-alt-icon" data-transition="turn">设置</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+<!--.....................................................................................................................-->
+    <div data-role="page" id="setting">
+        <div data-role="header" data-position="fixed">
+            <h1>设置</h1>
+            <a href="#" data-role="button" data-rel="back"  class="ui-btn ui-icon-carat-l ui-btn-icon-left ui-nodisc-icon">返回</a>
+            <a href="#" data-role="button" class="ui-btn ui-icon-user ui-btn-icon-right ui-nodisc-icon" style="height:15px"></a>
+        </div>
+        <div data-role="main" class="ui-content">
+            <p>功能</p>
+            <div data-role="controlgroup">
+                <a href="#" data-role="button" class="ui-btn ui-icon-camera ui-btn-icon-left">拍照</a>
+                <a href="#" data-role="button" class="ui-btn ui-icon-grid ui-btn-icon-left">相册</a>
+                <a href="#" data-role="button" class="ui-btn ui-icon-video ui-btn-icon-left">录像</a>
+                <a href="#" data-role="button" class="ui-btn ui-icon-back ui-btn-icon-left">取消</a>
+            </div>
+        </div>
+        <div data-role="footer" data-position="fixed">
+            <div data-role="navbar">
+                <ul>
+                    <li><a href="#home" data-icon="home" class="ui-nodisc-icon ui-alt-icon" data-transition="turn">首页</a></li>
+                    <li><a href="#discovery" data-icon="eye" class="ui-nodisc-icon ui-alt-icon" data-transition="turn">发现</a></li>
+                    <li><a href="#setting" data-icon="gear" class="ui-nodisc-icon ui-alt-icon" data-transition="turn">设置</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
