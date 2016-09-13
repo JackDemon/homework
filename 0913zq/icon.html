@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        canvas{
+            position: absolute;
+            left: 0;
+            top:0;
+            right:0;
+            bottom:0;
+            margin: auto;
+        }
+    </style>
+</head>
+<body>
+
+    <canvas id="mycanvas" width="500" height="500">
+        您的浏览器不支持canvas
+    </canvas>
+
+<script type="text/javascript">
+
+    var myscanvas=document.getElementById("mycanvas");
+    var otex = myscanvas.getContext("2d");
+
+    function createCercle(num) {
+        otex.save();
+        otex.beginPath();
+        otex.arc(250,250,num,0,2*Math.PI);
+        otex.fill();        otex.closePath();
+        otex.restore();
+    }
+
+    function init() {
+        otex.fillStyle="red";
+        createCercle(250);
+
+        otex.fillStyle="white";
+        createCercle(200);
+
+        otex.fillStyle="red";
+        createCercle(150);
+
+        otex.fillStyle="blue";
+        createCercle(100);
+
+        otex.save();
+        otex.beginPath();
+        otex.moveTo(100,50);
+        for(var i=0;i<11;i+=2){
+            var ox=100*Math.cos(i*72*Math.PI/180-Math.PI/2)+250;
+            var oy=100*Math.sin(i*72*Math.PI/180-Math.PI/2)+250;
+            otex.lineTo(ox,oy);
+        }
+        otex.fillStyle="white";
+        otex.fill();
+        otex.restore();
+    }
+
+    init();
+</script>
+
+</body>
+</html>
