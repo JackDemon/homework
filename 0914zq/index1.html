@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        canvas{
+            position: absolute;
+
+        }
+        div{
+            width: 100%;
+            height:600px;
+            border:solid;
+            margin-top: 30px;
+        }
+    </style>
+</head>
+<body>
+<div>
+    <canvas id="canvas" width="1000" height="600">
+        您的浏览器不支持canvas
+    </canvas>
+</div>
+
+</body>
+
+<script type="text/javascript">
+
+    var mycanvas = document.getElementById("canvas");
+    var otex = mycanvas.getContext("2d");
+    var arr=[60,90,150,130,170,190,125,175,155,165,155,145];
+
+    otex.save();
+    otex.beginPath();
+    otex.moveTo(100,70);
+    otex.lineTo(100,470);
+    otex.lineWidth=2;
+    otex.stroke();
+    otex.closePath();
+    otex.restore();
+
+    otex.save();
+    otex.beginPath();
+    otex.moveTo(710,70);
+    otex.lineTo(710,470);
+    otex.lineWidth=2;
+    otex.stroke();
+    otex.closePath();
+    otex.restore();
+
+    for(var k=0;k<11;k++){
+        otex.font="15px 宋体";
+        otex.fillText(""+k*20,75,470-k*40);
+    }
+
+    for(var m=0;m<12;m++){
+        otex.font="15px 宋体";
+        otex.fillText(m+1+"月",120+m*50,490);
+    }
+
+    for(var i=0;i<11;i++){
+        otex.save();
+        otex.beginPath();
+        otex.moveTo(100,70+i*40);
+        otex.lineTo(710,70+i*40);
+        otex.lineWidth=2;
+        otex.stroke();
+        otex.closePath();
+        otex.restore();
+    }
+
+    function creatLine(x,y,w,h) {
+        otex.save();
+        otex.beginPath();
+        otex.fillStyle="blue";
+        otex.fill();
+        otex.fillRect(x,y,w,h);
+        otex.closePath();
+        otex.restore();
+    }
+
+//    for(var j=0;j<12;j++){
+//        creatLine(110+j*50,470-arr[j]*2,40,arr[j]*2);
+//    }
+
+
+//    实验  单条显示
+
+    var n=0;
+    var j=0;
+    function mm() {
+        var timeS=setInterval(function () {
+            n++;
+            creatLine(110+j*50,470-n*2,40,n*2);
+            if(n>=arr[j]){
+                n=0;
+                j++;
+                clearInterval(timeS);
+            }
+        },arr[j]/10);
+    }
+     for(var l=0;l<12;l++){
+         mm();
+     }
+
+    //实验  同事显示
+
+//    var n=0;
+//    var j=0;
+//    function mm(event) {
+//        var timeS=setInterval(function () {
+//            n++;
+//            creatLine(110+event*50,470-n*2,40,n*2);
+//            if(n>=arr[event]){
+//                n=0;
+//                clearInterval(timeS);
+//            }
+//        },10);
+//    }
+//    for(j=0;j<12;j++){
+//        mm(j);
+//    }
+
+
+
+</script>
+
+</html>
