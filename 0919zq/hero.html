@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<style>
+    *{
+        margin: 0;
+        padding: 0;
+    }
+</style>
+<body>
+<canvas id="canvas" width="300" height="500" style="background-color:#abcdef">
+    当前浏览器不支持
+</canvas>
+</body>
+<script>
+    var canvas=document.getElementById("canvas");
+    var cxt=canvas.getContext("2d");
+    function start() {
+        j1x=0,j1y=0,j1h=0,j1w=60;
+        j2x=0,j2y=0,j2h=0,j2w=0;
+        j3x=0,j3y=0,j3h=0,j3w=0;
+        gunzic=0,gunzix=60,gunziy=330;
+        playx=40,playy=330;fenshu=0;
+        cxt.fillStyle="#abcdef";
+        cxt.fillRect(0,0,300,500);
+        cxt.fillStyle="#000000";
+        cxt.fillRect(j1x,350,j1w,150);
+        j2x=Math.floor(Math.random()*150+20)+j1x+j1w;
+        j2w=Math.floor(Math.random()*50+20);
+        cxt.fillRect(j2x,350,j2w,150);
+
+        j3x=Math.floor(Math.random()*150+20)+j2x+j2w;
+        j3w=Math.floor(Math.random()*50+20);
+        cxt.fillRect(j3x,350,j3w,150);
+
+        cxt.fillStyle="red";
+        cxt.fillRect(playx,playy,20,20);
+
+        huafenshu();
+    }
+
+    function dokeydown(e) {
+        var keycod=e.keyCode||e.which;
+        if(keycod==32) {
+            gunziy = gunziy - 5;
+            gunzic = 350 - gunziy;
+            cxt.strokeStyle = "#000";
+            cxt.lineWidth = 3;
+            cxt.moveTo(playx + 20, playy + 20);
+            cxt.lineTo(gunzix, gunziy);
+            cxt.stroke();
+        }
+    }
+    function dokeyup(e) {
+        var keycod=e.keyCode||e.which;
+        if(keycod==32){
+            gunziy=350;
+            cxt.beginPath();
+            cxt.strokeStyle="#abcdef";
+            cxt.lineWidth=2;
+            cxt.moveTo(playx+20,playy+20);
+            cxt.lineTo(playx+20,350-gunzic);
+            cxt.stroke();
+            var jiaodu=0;
+            var id=setInterval(function () {
+                jiaodu+=5;
+                turn(jiaodu,id);
+            },15);
+            moveplay();
+        }
+    }
+    function turn(jiaodu,id) {
+        cxt.clearRect(j1x+j1w-10,350-gunzic,gunzic+10,gunzic);
+        cxt.save();
+        cxt.beginPath();
+        cxt.strokeStyle="black";
+        cxt.translate(j1x+j1w,350);
+        cxt.rotate(jiaodu*Math.PI/180);
+        cxt.moveTo(0,0);
+        cxt.lineTo(0,350-gunzic-playy-20);
+        cxt.closePath();
+        cxt.stroke();
+        cxt.restore();
+        if(jiaodu>=90){
+            clearInterval(id);
+        }
+
+    }
+    function moveplay() {
+        document.removeEventListener("keydown",dokeydown);
+        document.removeEventListener("keyup",dokeyup);
+        cxt.beginPath();
+        cxt.fillStyle="#abcdef";
+        cxt.fillRect(playx,playy,20,20);
+        cxt.stroke();
+        cxt.beginPath();
+        cxt.fillStyle="red";
+        playx=playx+5;
+        cxt.fillRect(playx,playy,20,20);
+        cxt.stroke();
+        if(playx<=gunzic+j1w-20){
+            setTimeout(moveplay,40);
+        }else{
+            document.addEventListener("keydown",dokeydown);
+            document.addEventListener("keyup",dokeyup);
+            if(j1w+gunzic<(j2x+j2w)&&j1w+gunzic>j2x){
+                cxt.beginPath();
+                cxt.beginPath();
+                cxt.fillStyle="#abcdef";
+                cxt.fillRect(playx,playy,20,20);
+                cxt.stroke();
+                cxt.beginPath();
+                cxt.fillStyle="red";
+                playx=j2x+j2w-20;
+                cxt.fillRect(playx,playy,20,20);
+                cxt.stroke();
+                fenshu++;
+                moveall();
+            }else{
+                cxt.clearRect(0,0,300,500);
+//                cxt.fillStyle="red";
+//                cxt.font="20px Arial";
+//                ctx.fillText("GAME OVER",30,60);
+
+                cxt.fillStyle="red";
+                cxt.font="40px Arial";
+                cxt.fillText("Score:"+fenshu,30,130);
+
+//                ctx.font="20px";
+//                ctx.fillStyle="red";
+//                ctx.fillText("GAME OVER",30,70);
+//                ctx.fillText("Score:"+fenshu,45,130);
+
+//                ctx.font="35px Arial";
+//                ctx.fillStyle="red";
+//                ctx.fillText("GAME OVER",30,70);
+//                ctx.fillText("Score:"+score,55,130);
+
+                document.removeEventListener("keydown",dokeydown);
+                document.removeEventListener("keyup",dokeyup);
+                document.addEventListener("keydown",function (e) {
+                    var keycod=e.keyCode||e.which;
+                    if(keycod==13) {
+                        start();
+                        document.addEventListener("keydown",dokeydown);
+                        document.addEventListener("keyup",dokeyup);
+                    }
+                });
+            }
+        }
+    }
+
+    function huafenshu() {
+        cxt.fillStyle="#fff";
+        cxt.font="60px 宋体";
+        cxt.fillText(fenshu,140,60)
+    }
+    function moveall() {
+        cxt.fillStyle="#abcdef";
+        cxt.fillRect(0,0,300,500);
+        cxt.fillStyle="#000";
+        j1x--;
+        j2x--;
+        j3x--;
+        playx--;
+        cxt.fillRect(j1x,350,j1w,150);
+        cxt.fillRect(j2x,350,j2w,150);
+        cxt.fillRect(j3x,350,j3w,150);
+        cxt.fillStyle="red";
+        cxt.fillRect(playx,playy,20,20);
+        huafenshu();
+        if(j2x>=0){
+            setTimeout(moveall,3);
+        }else{
+            change();
+        }
+    }
+
+    function change() {
+        j1x=j2x;
+        j1w=j2w;
+        j2x=j3x;
+        j2w=j3w;
+        cxt.fillStyle="#000";
+        j3x=Math.floor(Math.random()*150+20)+j2x+j2w;
+        j3w=Math.floor(Math.random()*50+20);
+        cxt.fillRect(j3x,350,j3w,150);
+        gunzix=j1w;
+    }
+    start();
+    document.addEventListener("keydown",dokeydown);
+    document.addEventListener("keyup",dokeyup);
+
+</script>
+</html>
