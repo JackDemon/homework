@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="jquery-3.1.0.js"></script>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .div{
+            width: 33%;
+            height: 295px;
+            float: left;
+            position: relative;
+            overflow: hidden;
+        }
+        img{
+            width: 120%;
+            height: 110%;
+        }
+        /*...........................................*/
+        #img1{
+            /*animation: first 2s linear;*/
+            /*animation-iteration-count:infinite;*/
+            /*animation-direction:alternate;*/
+            position: relative;
+        }
+        @keyframes first {
+            from{
+                right: 0;
+                /*transform: translate(0,0) ;*/
+            }
+            to{
+                right: 30px;
+                /*transform: translate(30px,0) ;*/
+            }
+        }
+        @keyframes first1 {
+            from{
+                right: 30px;
+                /*transform: translate(30px,0) ;*/
+            }
+            to{
+                right: 0;
+                /*transform: translate(0px,0) ;*/
+            }
+        }
+        /*...........................................*/
+        #div2{
+            background: url("2.jpg");
+            overflow: hidden;
+        }
+        #div2 span{
+            font-size: 18px;
+            text-align: center;
+            display: block;
+            background: white;
+            width: 200px;
+            height: 22px;
+            animation: second 2s;
+            animation-iteration-count:infinite;
+            animation-direction:alternate;
+        }
+        #div2 span:nth-child(1) {
+            -webkit-animation-delay: 0s;
+            animation-delay: 0s;
+            position: absolute;
+            top: 100px;
+        }
+        #div2 span:nth-child(2) {
+            -webkit-animation-delay: .5s;
+            animation-delay: .1s;
+            position: absolute;
+            top: 150px;
+        }
+        #div2 span:nth-child(3) {
+            -webkit-animation-delay: 1s;
+            animation-delay: .2s;
+            position: absolute;
+            top: 200px;
+        }
+        @keyframes second {
+            from{
+                left: -300px;
+            }
+            to {
+                left: 20px;
+            }
+        }
+        @keyframes second1 {
+            from{
+                left: 20px;
+            }
+            to {
+                left: -300px;
+            }
+        }
+        /*...........................................*/
+        #div3{
+            background: url("3.jpg");
+        }
+        #div3 span{
+            display: block;
+            background: white;
+            position: absolute;
+            animation: third 3s;
+            animation-iteration-count:infinite;
+            animation-direction:alternate;
+            animation-timing-function:ease-out;
+        }
+        @keyframes third {
+            from{
+                top: 350px;
+            }
+            to{
+                top: 223px;
+            }
+        }
+        /*...........................................*/
+        #div4{
+            background: url("4.jpg");
+        }
+        #div44{
+            width: 450px;
+            height: 300px;
+            background: white;
+            transform-origin:450px 0;
+            position: relative;
+            animation: forth 2s;
+            animation-iteration-count:infinite;
+            animation-direction:alternate;
+        }
+        @keyframes forth {
+            from{
+                transform: skew(0deg,0deg);
+                top: 335px;
+            }
+            to{
+                transform: skew(0deg,-30deg);
+                top: 35px;
+            }
+        }
+        /*...........................................*/
+    </style>
+</head>
+<body>
+
+    <div id="div1" class="div">
+        <img id="img1" src="1.jpg" alt="">
+    </div>
+    <div id="div2" class="div">
+        <!--<div>-->
+            <span class="spann">飞奔而来，飞奔而去</span>
+            <span class="spann">缓缓而至，缓缓而归</span>
+            <span class="spann">悠哉悠哉，悠哉悠哉</span>
+        <!--</div>-->
+    </div>
+    <div id="div3" class="div">
+        <!--<img id="img3" src="3.jpg" alt="">-->
+        <span>人生的道路十分漫长，前进中布满了荆棘。我们总是面临着一次又一次的转折。
+            如何迈进每一步都要我们自己做出抉择。没有人能够帮助我们，我们必须依靠自己，
+            必须相信自己踏出的每一步都是正确的，无悔地走下去</span>
+    </div>
+    <div id="div4" class="div">
+        <div id="div44"></div>
+    </div>
+    <div id="div5" class="div">
+        <img id="img5" src="5.jpg" alt="">
+    </div>
+    <div id="div6" class="div">
+        <img id="img6" src="6.jpg" alt="">
+    </div>
+    <div id="div7" class="div">
+        <img id="img7" src="7.jpg" alt="">
+    </div>
+    <div id="div8" class="div">
+        <img id="img8" src="8.jpg" alt="">
+    </div>
+    <div id="div9" class="div">
+        <img id="img9" src="9.jpg" alt="">
+    </div>
+
+</body>
+
+    <script>
+        $(function () {
+            var img1 = document.getElementById("img1");
+            var spann = document.getElementsByClassName("spann");
+            $(document).ready(function(){$("#div1").mouseover(function(){
+                img1.style.animation = "first 2s linear";
+            })});
+            $(document).ready(function(){$("#div1").mouseleave(function(){
+                img1.style.animation = "first1 2s linear";
+            })});
+//            $(document).ready(function(){$("#div2").mouseover(function(){
+//                spann.style.animation = "second 2s linear";
+//            })});
+//            $(document).ready(function(){$("#div2").mouseleave(function(){
+//                spann.style.animation = "second1 2s linear";
+//            })});
+        });
+    </script>
+
+</html>
